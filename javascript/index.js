@@ -11,14 +11,26 @@ function updateTime() {
     );
   }
 
-  let parisElement = document.querySelector("#paris");
-  if (parisElement) {
-    let parisDateElement = parisElement.querySelector(".date");
-    let parisTimeElement = parisElement.querySelector(".time");
-    let parisTime = moment().tz("Europe/Paris");
+  let saipanElement = document.querySelector("#saipan");
+  if (saipanElement) {
+    let saipanDateElement = saipanElement.querySelector(".date");
+    let saipanTimeElement = saipanElement.querySelector(".time");
+    let saipanTime = moment().tz("Pacific/Saipan");
 
-    parisDateElement.innerHTML = parisTime.format("MMMM	Do YYYY");
-    parisTimeElement.innerHTML = parisTime.format(
+    saipanDateElement.innerHTML = saipanTime.format("MMMM	Do YYYY");
+    saipanTimeElement.innerHTML = saipanTime.format(
+      "h:mm:ss [<small>]A[</small>]"
+    );
+  }
+
+  let amsterdamElement = document.querySelector("#amsterdam");
+  if (amsterdamElement) {
+    let amsterdamDateElement = amsterdamElement.querySelector(".date");
+    let amsterdamTimeElement = amsterdamElement.querySelector(".time");
+    let amsterdamTime = moment().tz("Europe/Amsterdam");
+
+    amsterdamDateElement.innerHTML = amsterdamTime.format("MMMM	Do YYYY");
+    amsterdamTimeElement.innerHTML = amsterdamTime.format(
       "h:mm:ss [<small>]A[</small>]"
     );
   }
@@ -39,9 +51,10 @@ function updateCity(event) {
           <div class="date">${cityTime.format("MMMM Do YYYY")}</div>
         </div>
         <div class="time">${cityTime.format("h:mm:ss")}<small>${cityTime.format(
-    "A"
+    " A"
   )}</small></div>
-      </div>`;
+      </div>
+      <a href = "index.html">Show all cities</a>`;
 }
 
 updateTime();
